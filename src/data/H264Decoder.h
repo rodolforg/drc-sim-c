@@ -18,6 +18,7 @@ class H264Decoder {
 
 public:
     H264Decoder();
+    ~H264Decoder();
 
     int image(uint8_t *nals, int nals_size, uint8_t *image);
 

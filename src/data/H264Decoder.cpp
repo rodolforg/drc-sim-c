@@ -55,6 +55,13 @@ H264Decoder::H264Decoder() {
 #endif
 }
 
+H264Decoder::~H264Decoder() {
+    avcodec_free_context(&context);
+    av_frame_free(&frame);
+    av_frame_free(&out_frame);
+//    av_packet_free(&av_packet);
+}
+
 int H264Decoder::image(uint8_t *nals, int nals_size, uint8_t *image) {
     av_packet.data = nals;
     av_packet.size = nals_size;
